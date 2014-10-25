@@ -118,11 +118,6 @@ static CGFloat const kMaxBounceAmount = 8;
 	if (!self.contentView.backgroundColor)
 		self.contentView.backgroundColor = [UIColor whiteColor];
 	
-	if (!self.icon)
-	{
-		self.icon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kDefaultIconSize, kDefaultIconSize)];
-		[self addSubview:self.icon];
-	}
 	
 	if (!self.contentView)
 	{
@@ -194,8 +189,6 @@ static CGFloat const kMaxBounceAmount = 8;
 						self.currentSwipe = JZSwipeTypeLongRight;
 					}
 					
-					self.icon.center = CGPointMake(self.contentView.frame.origin.x - ((self.icon.frame.size.width / 2) + kIconHorizontalPadding), self.contentView.frame.size.height / 2);
-					self.icon.alpha = 1;
 				}
 			}
 			else if (diff < 0)
@@ -205,8 +198,6 @@ static CGFloat const kMaxBounceAmount = 8;
 				{
 					// fade range
 					self.backgroundView.backgroundColor = self.defaultBackgroundColor;
-					self.icon.center = CGPointMake(self.frame.size.width - ((self.icon.frame.size.width / 2) + kIconHorizontalPadding), self.contentView.frame.size.height / 2);
-					self.icon.alpha = fabs(diff / (self.icon.frame.size.width + (kIconHorizontalPadding * 3)));
 					self.currentSwipe = JZSwipeTypeNone;
 				}
 				else
@@ -223,9 +214,7 @@ static CGFloat const kMaxBounceAmount = 8;
 						self.currentSwipe = JZSwipeTypeLongLeft;
 					}
 					
-					self.icon.center = CGPointMake((self.contentView.frame.origin.x + self.contentView.frame.size.width) + ((self.icon.frame.size.width / 2) + kIconHorizontalPadding), self.contentView.frame.size.height / 2);
-					self.icon.alpha = 1;
-				}
+                }
 			}
 			
 			if (originalSwipe != self.currentSwipe)
@@ -254,7 +243,6 @@ static CGFloat const kMaxBounceAmount = 8;
 {
 	CGFloat newIconCenterX = 0;
 	CGFloat newViewCenterX = 0;
-	CGFloat iconAlpha = 1;
 
 	if ([self isRightSwipeType:type])
 	{
@@ -271,9 +259,8 @@ static CGFloat const kMaxBounceAmount = 8;
 	else
 	{
 		// non-bouncing swipe type none (unused)
-		newIconCenterX = self.icon.center.x;
 		newViewCenterX = self.dragStart;
-		iconAlpha = 0;
+
 	}
 	
 	[UIView animateWithDuration:0.25 delay:0
@@ -281,7 +268,6 @@ static CGFloat const kMaxBounceAmount = 8;
 					 animations:^{
 						 self.icon.center = CGPointMake(newIconCenterX, self.contentView.frame.size.height / 2);
 						 self.contentView.center = CGPointMake(newViewCenterX, self.contentView.center.y);
-						 self.icon.alpha = iconAlpha;
 					 } completion:^(BOOL finished) {
 						 if ([self.delegate respondsToSelector:@selector(swipeCell:triggeredSwipeWithType:)])
 							 [self.delegate swipeCell:self triggeredSwipeWithType:type];
@@ -341,8 +327,6 @@ static CGFloat const kMaxBounceAmount = 8;
 
 @end
 
-@implementation SwipeCellImageSet
-@end
 
 @implementation SwipeCellColorSet
 @end

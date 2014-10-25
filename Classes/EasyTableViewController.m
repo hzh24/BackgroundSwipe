@@ -73,14 +73,14 @@ static NSMutableArray *tableData;
 
 - (void)setupHorizontalView {
 	CGRect frameRect	= CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height - 160);
-	EasyTableView *view	= [[EasyTableView alloc] initWithFrame:frameRect numberOfColumns:NUM_OF_CELLS ofWidth:VERTICAL_TABLEVIEW_WIDTH];
+	EasyTableView *view	= [[EasyTableView alloc] initWithFrame:frameRect numberOfColumns:NUM_OF_CELLS ofWidth:VERTICAL_TABLEVIEW_WIDTH / 0.8];
 	self.horizontalView = view;
 	
 	horizontalView.delegate						= self;
 	horizontalView.tableView.backgroundColor	= TABLE_BACKGROUND_COLOR;
 	horizontalView.tableView.allowsSelection	= YES;
 	horizontalView.tableView.separatorColor		= [UIColor whiteColor];
-	horizontalView.cellBackgroundColor			= [UIColor darkGrayColor];
+	horizontalView.cellBackgroundColor			= [UIColor grayColor];
 	horizontalView.autoresizingMask				= UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
 	
 	[self.view addSubview:horizontalView];
@@ -113,9 +113,7 @@ static NSMutableArray *tableData;
 	// Use a different color for the two different examples
 	if (easyTableView == horizontalView)
 		label.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
-	else
-		label.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.3];
-	
+    
 	UIImageView *borderView		= [[UIImageView alloc] initWithFrame:label.bounds];
 	borderView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 	borderView.tag				= BORDER_VIEW_TAG;
