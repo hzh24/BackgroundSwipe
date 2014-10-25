@@ -23,12 +23,7 @@
 #import <UIKit/UIKit.h>
 
 /* -------------- SwipeCellImageSet -------------- */
-@interface SwipeCellImageSet : NSObject
-@property (nonatomic, strong) UIImage *shortRightSwipeImage;
-@property (nonatomic, strong) UIImage *longRightSwipeImage;
-@property (nonatomic, strong) UIImage *shortLeftSwipeImage;
-@property (nonatomic, strong) UIImage *longLeftSwipeImage;
-@end
+
 
 /**
  Use this method to set `JZSwipeCell`'s `imageSet` property.
@@ -37,15 +32,7 @@
  @param shortLeftSwipeImage The icon to display during a short swipe to the left
  @param longLeftSwipeImage The icon to display during a long swipe to the left
  */
-NS_INLINE SwipeCellImageSet* SwipeCellImageSetMake(UIImage *shortRightSwipeImage, UIImage *longRightSwipeImage, UIImage *shortLeftSwipeImage, UIImage *longLeftSwipeImage)
-{
-	SwipeCellImageSet *is = [[SwipeCellImageSet alloc] init];
-	is.shortRightSwipeImage = shortRightSwipeImage;
-	is.longRightSwipeImage = longRightSwipeImage;
-	is.shortLeftSwipeImage = shortLeftSwipeImage;
-	is.longLeftSwipeImage = longLeftSwipeImage;
-	return is;
-}
+
 
 /* -------------- SwipeCellColorSet -------------- */
 @interface SwipeCellColorSet : NSObject
@@ -131,10 +118,7 @@ typedef enum {
  */
 @property (nonatomic, assign) CGFloat shortSwipeLength;
 
-/**
- The set of 4 icons that will be used for the 4 swipe zones
- */
-@property (nonatomic, strong) SwipeCellImageSet *imageSet;
+
 
 /**
  The set of 4 colors that will be used for the 4 swipe zones

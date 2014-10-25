@@ -134,7 +134,7 @@ static CGFloat const kMaxBounceAmount = 8;
 	self.gesture.delegate = self;
 	[self.contentView addGestureRecognizer:self.gesture];
 	
-	self.shortSwipeLength = self.contentView.frame.size.width * 0.66;
+	self.shortSwipeLength = self.contentView.frame.size.height * 0.66;
 	
 	self.colorSet = [self defaultColorSet];
 	self.defaultBackgroundColor = [UIColor lightGrayColor];
@@ -185,13 +185,11 @@ static CGFloat const kMaxBounceAmount = 8;
 					// hang icon to side of content view
 					if (diff < self.shortSwipeLength)
 					{
-						self.icon.image = self.imageSet.shortRightSwipeImage;
 						self.backgroundView.backgroundColor = self.colorSet.shortRightSwipeColor;
 						self.currentSwipe = JZSwipeTypeShortRight;
 					}
 					else
 					{
-						self.icon.image = self.imageSet.longRightSwipeImage;
 						self.backgroundView.backgroundColor = self.colorSet.longRightSwipeColor;
 						self.currentSwipe = JZSwipeTypeLongRight;
 					}
@@ -206,7 +204,6 @@ static CGFloat const kMaxBounceAmount = 8;
 				if (diff >= -(self.icon.frame.size.width + (kIconHorizontalPadding * 2)))
 				{
 					// fade range
-					self.icon.image = self.imageSet.shortLeftSwipeImage;
 					self.backgroundView.backgroundColor = self.defaultBackgroundColor;
 					self.icon.center = CGPointMake(self.frame.size.width - ((self.icon.frame.size.width / 2) + kIconHorizontalPadding), self.contentView.frame.size.height / 2);
 					self.icon.alpha = fabs(diff / (self.icon.frame.size.width + (kIconHorizontalPadding * 3)));
@@ -217,13 +214,11 @@ static CGFloat const kMaxBounceAmount = 8;
 					// hang icon to side of content view
 					if (diff > -self.shortSwipeLength)
 					{
-						self.icon.image = self.imageSet.shortLeftSwipeImage;
 						self.backgroundView.backgroundColor = self.colorSet.shortLeftSwipeColor;
 						self.currentSwipe = JZSwipeTypeShortLeft;
 					}
 					else
 					{
-						self.icon.image = self.imageSet.longLeftSwipeImage;
 						self.backgroundView.backgroundColor = self.colorSet.longLeftSwipeColor;
 						self.currentSwipe = JZSwipeTypeLongLeft;
 					}

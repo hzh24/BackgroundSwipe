@@ -53,10 +53,9 @@
 	if (orientation == EasyTableViewOrientationHorizontal) {
 		int xOrigin	= (self.bounds.size.width - self.bounds.size.height)/2;
 		int yOrigin	= (self.bounds.size.height - self.bounds.size.width)/2;
-		tableView	= [[UITableView alloc] initWithFrame:CGRectMake(xOrigin, yOrigin, self.bounds.size.height, self.bounds.size.width)];
+		tableView	= [[UITableView alloc] initWithFrame:CGRectMake(xOrigin, yOrigin, self.bounds.size.height , self.bounds.size.width)];
 	}
-	else
-		tableView	= [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+    tableView.backgroundColor = [UIColor purpleColor];
 	
 	tableView.tag				= TABLEVIEW_TAG;
 	tableView.delegate			= self;

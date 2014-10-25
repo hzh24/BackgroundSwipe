@@ -132,8 +132,6 @@ static NSMutableArray *tableData;
 	label.text		= [NSString stringWithFormat:@"%i", indexPath.row];
 	
 	// selectedIndexPath can be nil so we need to test for that condition
-	BOOL isSelected = (easyTableView.selectedIndexPath) ? ([easyTableView.selectedIndexPath compare:indexPath] == NSOrderedSame) : NO;
-	[self borderIsSelected:isSelected forView:view];		
 }
 
 // Optional delegate to track the selection of a particular cell
