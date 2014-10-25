@@ -72,14 +72,14 @@ static NSMutableArray *tableData;
 #pragma mark EasyTableView Initialization
 
 - (void)setupHorizontalView {
-	CGRect frameRect	= CGRectMake(0, LANDSCAPE_HEIGHT - HORIZONTAL_TABLEVIEW_HEIGHT - 400, PORTRAIT_WIDTH + 250, HORIZONTAL_TABLEVIEW_HEIGHT + 400);
+	CGRect frameRect	= CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height - 160);
 	EasyTableView *view	= [[EasyTableView alloc] initWithFrame:frameRect numberOfColumns:NUM_OF_CELLS ofWidth:VERTICAL_TABLEVIEW_WIDTH];
 	self.horizontalView = view;
 	
 	horizontalView.delegate						= self;
 	horizontalView.tableView.backgroundColor	= TABLE_BACKGROUND_COLOR;
 	horizontalView.tableView.allowsSelection	= YES;
-	horizontalView.tableView.separatorColor		= [UIColor darkGrayColor];
+	horizontalView.tableView.separatorColor		= [UIColor whiteColor];
 	horizontalView.cellBackgroundColor			= [UIColor darkGrayColor];
 	horizontalView.autoresizingMask				= UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
 	
@@ -106,13 +106,9 @@ static NSMutableArray *tableData;
 - (UIView *)easyTableView:(EasyTableView *)easyTableView viewForRect:(CGRect)rect {
 	CGRect labelRect		= CGRectMake(0, 0, rect.size.width, rect.size.height);
 	UILabel *label			= [[UILabel alloc] initWithFrame:labelRect];
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0
-	label.textAlignment		= UITextAlignmentCenter;
-#else
-	label.textAlignment		= NSTextAlignmentCenter;
-#endif
+    label.textAlignment = NSTextAlignmentCenter;
 	label.textColor			= [UIColor whiteColor];
-	label.font				= [UIFont boldSystemFontOfSize:60];
+	label.font				= [UIFont boldSystemFontOfSize:15];
 	
 	// Use a different color for the two different examples
 	if (easyTableView == horizontalView)

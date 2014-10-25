@@ -97,11 +97,9 @@ static CGFloat const kMaxBounceAmount = 8;
             break;
 		case JZSwipeTypeShortLeft:
 			self.backgroundView.backgroundColor = self.colorSet.shortLeftSwipeColor;
-			self.icon.image = self.imageSet.shortLeftSwipeImage;
 			break;
 		case JZSwipeTypeLongLeft:
 			self.backgroundView.backgroundColor = self.colorSet.longLeftSwipeColor;
-			self.icon.image = self.imageSet.longLeftSwipeImage;
 			break;
 		case JZSwipeTypeNone:
 		default:
@@ -179,10 +177,7 @@ static CGFloat const kMaxBounceAmount = 8;
 				if (diff <= self.icon.frame.size.width + (kIconHorizontalPadding * 2))
 				{
 					// fade range
-					self.icon.image = self.imageSet.shortRightSwipeImage;
-					self.backgroundView.backgroundColor = self.defaultBackgroundColor;
-					self.icon.center = CGPointMake((self.icon.frame.size.width / 2) + kIconHorizontalPadding, self.contentView.frame.size.height / 2);
-					self.icon.alpha = diff / (self.icon.frame.size.width + (kIconHorizontalPadding * 3));
+                    self.backgroundView.backgroundColor = self.defaultBackgroundColor;
 					self.currentSwipe = JZSwipeTypeNone;
 				}
 				else

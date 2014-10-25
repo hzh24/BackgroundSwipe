@@ -10,6 +10,8 @@
 	<string>EasyTableView</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>772A05769E2A63F8BC437C6C3C19E06F9737019A</key>
+		<string>https://github.com/wongzigii/BackgroundSwipe.git</string>
 		<key>DD9964A70F43A3A052ED825CB8B9C28A4F968F78</key>
 		<string>https://github.com/wongzigii/EasyTableView.git</string>
 	</dict>
@@ -17,17 +19,27 @@
 	<string>EasyTableView.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>DD9964A70F43A3A052ED825CB8B9C28A4F968F78</key>
+		<key>772A05769E2A63F8BC437C6C3C19E06F9737019A</key>
 		<string>../..</string>
+		<key>DD9964A70F43A3A052ED825CB8B9C28A4F968F78</key>
+		<string>../../../EasyTableView</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/wongzigii/EasyTableView.git</string>
+	<string>https://github.com/wongzigii/BackgroundSwipe.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>DD9964A70F43A3A052ED825CB8B9C28A4F968F78</string>
+	<string>772A05769E2A63F8BC437C6C3C19E06F9737019A</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>772A05769E2A63F8BC437C6C3C19E06F9737019A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BackgroundSwipe</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
