@@ -246,13 +246,11 @@ static CGFloat const kMaxBounceAmount = 8;
 
 	if ([self isRightSwipeType:type])
 	{
-		self.icon.center = CGPointMake(self.contentView.center.x - ((self.contentView.frame.size.width / 2) + (self.icon.frame.size.width / 2) + kIconHorizontalPadding), self.contentView.frame.size.height / 2);
-		newIconCenterX = self.frame.size.width + (self.icon.frame.size.width / 2) + kIconHorizontalPadding;
+				newIconCenterX = self.frame.size.width + (self.icon.frame.size.width / 2) + kIconHorizontalPadding;
 		newViewCenterX = newIconCenterX + (self.contentView.frame.size.width / 2) + (self.icon.frame.size.width / 2) + kIconHorizontalPadding;
 	}
 	else if ([self isLeftSwipeType:type])
 	{
-		self.icon.center = CGPointMake(self.contentView.center.x + (self.contentView.frame.size.width / 2) + (self.icon.frame.size.width / 2) + kIconHorizontalPadding, self.contentView.frame.size.height / 2);
 		newIconCenterX = -((self.icon.frame.size.width / 2) + kIconHorizontalPadding);
 		newViewCenterX = newIconCenterX - ((self.contentView.frame.size.width / 2) + (self.icon.frame.size.width / 2) + kIconHorizontalPadding);
 	}

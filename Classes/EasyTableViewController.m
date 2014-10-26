@@ -112,7 +112,7 @@ static NSMutableArray *tableData;
 	
 	// Use a different color for the two different examples
 	if (easyTableView == horizontalView)
-		label.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
+		label.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:1];
     
 	UIImageView *borderView		= [[UIImageView alloc] initWithFrame:label.bounds];
 	borderView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;

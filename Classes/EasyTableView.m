@@ -33,6 +33,10 @@
 #pragma mark -
 #pragma mark Initialization
 
+- (void)reloadData
+{
+    [self reloadData];
+}
 
 - (id)initWithFrame:(CGRect)frame numberOfColumns:(NSUInteger)numCols ofWidth:(CGFloat)width {
     if (self = [super initWithFrame:frame]) {
@@ -64,7 +68,7 @@
 	
 	// Rotate the tableView 90 degrees so that it is horizontal
 	if (orientation == EasyTableViewOrientationHorizontal)
-		tableView.transform	= CGAffineTransformMakeRotation(-M_PI/2);
+		tableView.transform	= CGAffineTransformMakeRotation(M_PI/2);
 	
 	tableView.showsVerticalScrollIndicator	 = NO;
 	tableView.showsHorizontalScrollIndicator = NO;
@@ -341,34 +345,10 @@
 		// Add a view to the cell's content view that is rotated to compensate for the table view rotation
 		CGRect viewRect;
 		if (_orientation == EasyTableViewOrientationHorizontal)
-			viewRect = CGRectMake(0, 0, cell.bounds.size.height, cell.bounds.size.width);
-		else
-			viewRect = CGRectMake(0, 0, cell.bounds.size.width, cell.bounds.size.height);
+			viewRect = CGRectMake(0, 0, cell.bounds.size.height- 50, cell.bounds.size.width- 50);
 		
-		UIView *rotatedView				= [[UIView alloc] initWithFrame:viewRect];
-		rotatedView.tag					= ROTATED_CELL_VIEW_TAG;
-		rotatedView.center				= cell.contentView.center;
-		rotatedView.backgroundColor		= self.cellBackgroundColor;
-		
-		if (_orientation == EasyTableViewOrientationHorizontal) {
-			rotatedView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-			rotatedView.transform = CGAffineTransformMakeRotation(M_PI/2);
-		}
-		else 
-			rotatedView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-		
-		// We want to make sure any expanded content is not visible when the cell is deselected
-		rotatedView.clipsToBounds = YES;
-		
-		// Prepare and add the custom subviews
-		[self prepareRotatedView:rotatedView];
-		
-		[cell.contentView addSubview:rotatedView];
-	}
-	[self setCell:cell boundsForOrientation:_orientation];
-	
-	[self setDataForRotatedView:[cell.contentView viewWithTag:ROTATED_CELL_VIEW_TAG] forIndexPath:indexPath];
-    return cell;
+    }
+	    return cell;
 }
 
 
@@ -388,29 +368,5 @@
 
 #pragma mark -
 #pragma mark Rotation
-
-- (void)prepareRotatedView:(UIView *)rotatedView {
-	UIView *content = [delegate easyTableView:self viewForRect:rotatedView.bounds];
-	
-	// Add a default view if none is provided
-	if (content == nil)
-		content = [[UIView alloc] initWithFrame:rotatedView.bounds];
-	
-	content.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-	content.tag = CELL_CONTENT_TAG;
-	[rotatedView addSubview:content];
-}
-
-
-- (void)setDataForRotatedView:(UIView *)rotatedView forIndexPath:(NSIndexPath *)indexPath {
-	UIView *content = [rotatedView viewWithTag:CELL_CONTENT_TAG];
-	
-   [delegate easyTableView:self setDataForView:content forIndexPath:indexPath];
-}
-
--(void)reloadData{
-    [self.tableView reloadData];
-}
-
 @end
 
